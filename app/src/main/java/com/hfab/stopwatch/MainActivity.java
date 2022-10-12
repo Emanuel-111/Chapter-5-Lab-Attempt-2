@@ -119,6 +119,35 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // When app is no longer visible
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+
+        if (running)
+        {
+            saveOffset();
+            stopwatch.stop();
+        }
+    }
+
+    // When app has stopped before it can start again
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        if (running)
+        {
+            setBaseTime();
+            stopwatch.start();
+            offset = 0;
+        }
+    }
+
+
+
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState)
     {
