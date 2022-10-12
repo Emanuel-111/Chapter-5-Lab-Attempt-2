@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // When app is no longer visible
+    // When app is no longer in the foreground
     @Override
     protected void onPause()
     {
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // When app has stopped before it can start again
+    // When app is in the foreground
     @Override
     protected void onResume()
     {
